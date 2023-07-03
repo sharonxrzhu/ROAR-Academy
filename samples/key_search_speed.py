@@ -17,11 +17,15 @@ file_name = "nasdaqlisted.txt"
 print('Reading I/O file ... ', end = ' ')
 try:
     # Get the script path
-
+    # os.path.abspath(__file__): string of the absolute path and filename of the current py. file
+    # os.path.dirname(string): retain the path portion of the string (remove the filename portion)
+    # os.getcwd() = current directory path you're in
     path = os.path.dirname(os.path.abspath(__file__))
-
+    print(path)
     # Open the file for read
+    # this file's path + name of nasdaqlisted.txt = path of nasdaqlisted.txt
     f_handle = open(path+'/'+file_name,"r")
+    print(f_handle)
     f_handle.readline()   # The first line is table captions
     # Create three dictionaries of different lengths
     count = 0
