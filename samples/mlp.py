@@ -63,6 +63,7 @@ testingX = samples[randomOrder[100:200], :]
 testingY = labels[randomOrder[100:200], :]
 
 model = Sequential()
+#only first layer has input shape
 model.add(Dense(4, input_shape=(2,), activation='sigmoid', use_bias=True))
 # model.add(Dense(4, input_shape=(2,), activation='relu', use_bias=True))
 model.add(Dense(2, activation='softmax' ))

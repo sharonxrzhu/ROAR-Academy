@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from keras.activations import sigmoid
 
-linearSeparableFlag = True
+linearSeparableFlag = False
 x_bias = 0
 
 def toy_2D_samples(x_bias ,linearSeparableFlag):
