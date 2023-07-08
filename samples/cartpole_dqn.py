@@ -45,7 +45,7 @@ class DQNAgent:
     def act(self, state):
         if np.random.rand() <= self.epsilon:
             return random.randrange(self.action_size)
-        act_values = self.model.predict(state)
+        act_values = self.model.predict(state,verbose=0) #verbose=1 makes it not print while training
         return np.argmax(act_values[0])  # returns action
 
     def replay(self, batch_size):
@@ -54,8 +54,8 @@ class DQNAgent:
             target = reward
             if not done:
                 target = (reward + self.gamma *
-                          np.amax(self.model.predict(next_state)[0]))
-            target_f = self.model.predict(state)
+                          np.amax(self.model.predict(next_state, verbose=0)[0]))
+            target_f = self.model.predict(state, verbose=0)
             target_f[0][action] = target
             self.model.fit(state, target_f, epochs=1, verbose=0)
         if self.epsilon > self.epsilon_min:
